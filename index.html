@@ -1,194 +1,159 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบตรวจสอบความสะอาด</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ผลการตรวจความสะอาดของร้าน</title>
     <style>
-        /* การตั้งค่าพื้นฐาน */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff; /* สีพื้นหลังพาสเทล */
         }
-
-        h1, h2, h3 {
-            color: #4c6ef5; /* โทนสีฟ้า */
-        }
-
         header {
-            background-color: #ffccd5; /* สีพาสเทลอ่อนๆ */
-            text-align: center;
-            padding: 20px;
-        }
-
-        nav {
-            background-color: #ffe0e9; /* สีพาสเทลชมพู */
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav a {
-            color: #4c6ef5;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            color: #ff7f7f;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container {
-            background-color: #f7f8fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-size: 16px;
-            color: #333;
-        }
-
-        input[type="text"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 14px;
-        }
-
-        button {
-            background-color: #4c6ef5;
+            background-color: #0066cc;
             color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #3658b1;
-        }
-
-        footer {
-            background-color: #ffccd5;
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            color: #333;
+            padding: 1rem;
         }
-
-        .data-table {
+        h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-
-        .data-table th,
-        .data-table td {
-            padding: 10px;
-            text-align: left;
+        table, th, td {
             border: 1px solid #ddd;
         }
-
-        .data-table th {
-            background-color: #ffccd5;
+        th, td {
+            padding: 12px;
+            text-align: center;
         }
-
-        .data-table td {
-            background-color: #f9f9f9;
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .critical {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .major {
+            background-color: #ffcc00;
+            color: black;
+        }
+        .minor {
+            background-color: #80e0a7;
+            color: black;
+        }
+        .status {
+            font-weight: bold;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>ระบบตรวจสอบความสะอาดของสาขา</h1>
-        <p>กรุณากรอกข้อมูลการตรวจสอบความสะอาดของแต่ละสาขา</p>
-    </header>
+<header>
+    <h1>ผลการตรวจความสะอาดของร้าน</h1>
+    <p>คะแนนการตรวจความสะอาดแต่ละสาขา</p>
+</header>
 
-    <nav>
-        <a href="#form">กรอกข้อมูล</a>
-        <a href="#records">ข้อมูลที่บันทึก</a>
-    </nav>
-
-    <div class="container">
-        <section id="form" class="form-container">
-            <h2>ฟอร์มการตรวจสอบความสะอาด</h2>
-            <form>
-                <label for="branch">ชื่อสาขา:</label>
-                <input type="text" id="branch" name="branch" required>
-
-                <label for="date">วันที่ตรวจสอบ:</label>
-                <input type="text" id="date" name="date" required>
-
-                <label for="cleanliness">ระดับความสะอาด:</label>
-                <select id="cleanliness" name="cleanliness" required>
-                    <option value="ดี">ดี</option>
-                    <option value="ปานกลาง">ปานกลาง</option>
-                    <option value="ต้องปรับปรุง">ต้องปรับปรุง</option>
-                </select>
-
-                <label for="remarks">หมายเหตุ:</label>
-                <textarea id="remarks" name="remarks" rows="4" placeholder="กรุณาระบุความคิดเห็นเพิ่มเติม..." required></textarea>
-
-                <button type="submit">บันทึกข้อมูล</button>
-            </form>
-        </section>
-
-        <section id="records">
-            <h2>ข้อมูลการตรวจสอบที่บันทึก</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>สาขา</th>
-                        <th>วันที่ตรวจสอบ</th>
-                        <th>ระดับความสะอาด</th>
-                        <th>หมายเหตุ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>สาขา 1</td>
-                        <td>2025-01-01</td>
-                        <td>ดี</td>
-                        <td>สะอาดมาก</td>
-                    </tr>
-                    <tr>
-                        <td>สาขา 2</td>
-                        <td>2025-01-02</td>
-                        <td>ปานกลาง</td>
-                        <td>ต้องปรับปรุงบางจุด</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-
-    <footer>
-        <p>© 2025 ระบบตรวจสอบความสะอาด | ทุกสิทธิ์สงวน</p>
-    </footer>
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>สาขา</th>
+                <th>Critical (รุนแรงมาก)</th>
+                <th>Major (รุนแรง)</th>
+                <th>Minor (ปกติ)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Siam Paragon G fl.</td>
+                <td class="critical">มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>Siam Paragon Major</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>Siam Center</td>
+                <td class="critical">มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>Siam Discovery</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">มี</td>
+                <td class="minor">ไม่มี</td>
+            </tr>
+            <tr>
+                <td>Langsuan</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>Nana Square</td>
+                <td class="critical">มี</td>
+                <td class="major">มี</td>
+                <td class="minor">ไม่มี</td>
+            </tr>
+            <tr>
+                <td>Ploenchit Center</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>The Mercury Ville</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>The 19th Chidlom</td>
+                <td class="critical">มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">ไม่มี</td>
+            </tr>
+            <tr>
+                <td>One Bangkok Reserve</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>One Bangkok R1 B1</td>
+                <td class="critical">มี</td>
+                <td class="major">ไม่มี</td>
+                <td class="minor">มี</td>
+            </tr>
+            <tr>
+                <td>One Bangkok 3 fl.</td>
+                <td class="critical">ไม่มี</td>
+                <td class="major">มี</td>
+                <td class="minor">มี</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
-
 </html>
