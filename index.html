@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FSA Area P'Yu</title>
+    <title>อัพเดทคะแนนการตรวจความสะอาดของร้าน</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,167 +22,116 @@
             margin: 0;
             font-size: 2rem;
         }
-        p {
-            font-size: 1.2rem;
-            color: #666;
-        }
         .container {
-            width: 90%;
+            width: 80%;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
-        table, th, td {
-            border: 1px solid #ddd;
+        label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .submit-btn {
+            background-color: #ff99b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
             border-radius: 5px;
         }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            font-size: 1rem;
-        }
-        th {
-            background-color: #ffb3d9;
-            color: #333;
-        }
-        .critical {
-            background-color: #ff99b3;
-            color: #fff;
-        }
-        .major {
-            background-color: #ffec99;
-            color: #333;
-        }
-        .minor {
-            background-color: #99e6b3;
-            color: #333;
-        }
-        .audit, .sm-project {
-            font-weight: bold;
-        }
-        .audit {
-            background-color: #ffb3d9;
-            color: #333;
-        }
-        .sm-project {
-            background-color: #b3e0ff;
-            color: #333;
+        .submit-btn:hover {
+            background-color: #ff6699;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>FSA Area P'Yu</h1>
-    <p>คะแนน FSA by Audit</p>
+    <h1>อัพเดทคะแนนการตรวจความสะอาดของร้าน</h1>
+    <p>กรุณากรอกข้อมูลคะแนนของสาขา</p>
 </header>
 
 <div class="container">
-    <table>
-        <thead>
-            <tr>
-                <th>สาขา</th>
-                <th>Critical (รุนแรงมาก)</th>
-                <th>Major (รุนแรง)</th>
-                <th>Minor (ปกติ)</th>
-                <th>ตรวจโดย</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Siam Paragon G fl.</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>Siam Paragon Major</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-            <tr>
-                <td>Siam Center</td>
-                <td class="critical">มี</td>
-                <td class="major">ไม่มี</td>
-                <td class="minor">มี</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>Siam Discovery</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-            <tr>
-                <td>Langsuan</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>Nana Square</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-            <tr>
-                <td>Ploenchit Center</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>The Mercury Ville</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-            <tr>
-                <td>The 19th Chidlom</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>One Bangkok Reserve</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-            <tr>
-                <td>One Bangkok R1 B1</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="audit">Audit</td>
-            </tr>
-            <tr>
-                <td>One Bangkok 3 fl.</td>
-                <td class="critical">-</td>
-                <td class="major">-</td>
-                <td class="minor">-</td>
-                <td class="sm-project">SM Project</td>
-            </tr>
-        </tbody>
-    </table>
+    <form id="cleanliness-form">
+        <label for="branch">เลือกสาขา:</label>
+        <select id="branch" name="branch">
+            <option value="Siam Paragon G fl.">Siam Paragon G fl.</option>
+            <option value="Siam Paragon Major">Siam Paragon Major</option>
+            <option value="Siam Center">Siam Center</option>
+            <option value="Siam Discovery">Siam Discovery</option>
+            <option value="Langsuan">Langsuan</option>
+            <option value="Nana Square">Nana Square</option>
+            <option value="Ploenchit Center">Ploenchit Center</option>
+            <option value="The Mercury Ville">The Mercury Ville</option>
+            <option value="The 19th Chidlom">The 19th Chidlom</option>
+            <option value="One Bangkok Reserve">One Bangkok Reserve</option>
+            <option value="One Bangkok R1 B1">One Bangkok R1 B1</option>
+            <option value="One Bangkok 3 fl.">One Bangkok 3 fl.</option>
+        </select>
+
+        <label for="critical">Critical (รุนแรงมาก):</label>
+        <select id="critical" name="critical">
+            <option value="มี">มี</option>
+            <option value="ไม่มี">ไม่มี</option>
+        </select>
+
+        <label for="major">Major (รุนแรง):</label>
+        <select id="major" name="major">
+            <option value="มี">มี</option>
+            <option value="ไม่มี">ไม่มี</option>
+        </select>
+
+        <label for="minor">Minor (ปกติ):</label>
+        <select id="minor" name="minor">
+            <option value="มี">มี</option>
+            <option value="ไม่มี">ไม่มี</option>
+        </select>
+
+        <label for="auditor">ตรวจโดย:</label>
+        <select id="auditor" name="auditor">
+            <option value="Audit">Audit</option>
+            <option value="SM Project">SM Project</option>
+        </select>
+
+        <button type="submit" class="submit-btn">อัพเดทข้อมูล</button>
+    </form>
 </div>
+
+<script>
+// Simulate saving data to a file (in reality, this would require a backend to handle the file write operation)
+document.getElementById("cleanliness-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent the form from submitting the traditional way
+
+    const formData = new FormData(e.target);
+    const data = {
+        branch: formData.get("branch"),
+        critical: formData.get("critical"),
+        major: formData.get("major"),
+        minor: formData.get("minor"),
+        auditor: formData.get("auditor")
+    };
+
+    console.log("ข้อมูลที่อัพเดท:", data);
+
+    // In a real scenario, you would send this data to the server to be saved in a JSON file or database
+    alert("ข้อมูลของสาขาถูกอัพเดทเรียบร้อยแล้ว!");
+});
+</script>
 
 </body>
 </html>
