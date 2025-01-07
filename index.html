@@ -8,25 +8,31 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #0066cc;
-            color: white;
+            background-color: #ffccd9;
+            color: #333;
             text-align: center;
             padding: 1rem;
         }
         h1 {
             margin: 0;
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #666;
         }
         .container {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
-            background-color: white;
+            background-color: #fff;
             padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         table {
             width: 100%;
@@ -35,29 +41,39 @@
         }
         table, th, td {
             border: 1px solid #ddd;
+            border-radius: 5px;
         }
         th, td {
             padding: 12px;
             text-align: center;
+            font-size: 1rem;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #ffb3d9;
             color: #333;
         }
         .critical {
-            background-color: #ff4d4d;
-            color: white;
+            background-color: #ff99b3;
+            color: #fff;
         }
         .major {
-            background-color: #ffcc00;
-            color: black;
+            background-color: #ffec99;
+            color: #333;
         }
         .minor {
-            background-color: #80e0a7;
-            color: black;
+            background-color: #99e6b3;
+            color: #333;
         }
-        .status {
+        .audit, .sm-project {
             font-weight: bold;
+        }
+        .audit {
+            background-color: #ffb3d9;
+            color: #333;
+        }
+        .sm-project {
+            background-color: #b3e0ff;
+            color: #333;
         }
     </style>
 </head>
@@ -76,6 +92,7 @@
                 <th>Critical (รุนแรงมาก)</th>
                 <th>Major (รุนแรง)</th>
                 <th>Minor (ปกติ)</th>
+                <th>ตรวจโดย</th>
             </tr>
         </thead>
         <tbody>
@@ -84,72 +101,84 @@
                 <td class="critical">มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>Siam Paragon Major</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">มี</td>
                 <td class="minor">มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
             <tr>
                 <td>Siam Center</td>
                 <td class="critical">มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>Siam Discovery</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">มี</td>
                 <td class="minor">ไม่มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
             <tr>
                 <td>Langsuan</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>Nana Square</td>
                 <td class="critical">มี</td>
                 <td class="major">มี</td>
                 <td class="minor">ไม่มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
             <tr>
                 <td>Ploenchit Center</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">มี</td>
                 <td class="minor">มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>The Mercury Ville</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
             <tr>
                 <td>The 19th Chidlom</td>
                 <td class="critical">มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">ไม่มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>One Bangkok Reserve</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">มี</td>
                 <td class="minor">มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
             <tr>
                 <td>One Bangkok R1 B1</td>
                 <td class="critical">มี</td>
                 <td class="major">ไม่มี</td>
                 <td class="minor">มี</td>
+                <td class="audit">Audit</td>
             </tr>
             <tr>
                 <td>One Bangkok 3 fl.</td>
                 <td class="critical">ไม่มี</td>
                 <td class="major">มี</td>
                 <td class="minor">มี</td>
+                <td class="sm-project">SM Project</td>
             </tr>
         </tbody>
     </table>
