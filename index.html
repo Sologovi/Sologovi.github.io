@@ -57,6 +57,13 @@
         .submit-btn:hover {
             background-color: #ff6699;
         }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -110,10 +117,20 @@
 
         <button type="submit" class="submit-btn">อัพเดทข้อมูล</button>
     </form>
+
+    <!-- Display result after submitting -->
+    <div id="result" class="result" style="display: none;">
+        <h2>ผลการตรวจ:</h2>
+        <p><strong>สาขา:</strong> <span id="result-branch"></span></p>
+        <p><strong>Critical (รุนแรงมาก):</strong> <span id="result-critical"></span></p>
+        <p><strong>Major (รุนแรง):</strong> <span id="result-major"></span></p>
+        <p><strong>Minor (ปกติ):</strong> <span id="result-minor"></span></p>
+        <p><strong>ตรวจโดย:</strong> <span id="result-auditor"></span></p>
+    </div>
 </div>
 
 <script>
-// Simulate saving data to a file (in reality, this would require a backend to handle the file write operation)
+// Handle form submission
 document.getElementById("cleanliness-form").addEventListener("submit", function(e) {
     e.preventDefault(); // Prevent the form from submitting the traditional way
 
@@ -126,9 +143,17 @@ document.getElementById("cleanliness-form").addEventListener("submit", function(
         auditor: formData.get("auditor")
     };
 
+    // Display the result section
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result-branch").textContent = data.branch;
+    document.getElementById("result-critical").textContent = data.critical;
+    document.getElementById("result-major").textContent = data.major;
+    document.getElementById("result-minor").textContent = data.minor;
+    document.getElementById("result-auditor").textContent = data.auditor;
+
     console.log("ข้อมูลที่อัพเดท:", data);
 
-    // In a real scenario, you would send this data to the server to be saved in a JSON file or database
+    // Optionally, you can show an alert or send data to the server.
     alert("ข้อมูลของสาขาถูกอัพเดทเรียบร้อยแล้ว!");
 });
 </script>
