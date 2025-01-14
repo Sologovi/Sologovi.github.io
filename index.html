@@ -3,160 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>อัพเดทคะแนนการตรวจความสะอาดของร้าน</title>
+    <title>FSA Score - กำลังพัฒนา</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+            background-color: #f0f0f0;
         }
-        header {
-            background-color: #ffccd9;
+        .message {
+            font-size: 24px;
             color: #333;
             text-align: center;
-            padding: 1rem;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        label {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-        input, select {
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .submit-btn {
-            background-color: #ff99b3;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .submit-btn:hover {
-            background-color: #ff6699;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #e6f7ff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>อัพเดทคะแนนการตรวจความสะอาดของร้าน</h1>
-    <p>กรุณากรอกข้อมูลคะแนนของสาขา</p>
-</header>
-
-<div class="container">
-    <form id="cleanliness-form">
-        <label for="branch">เลือกสาขา:</label>
-        <select id="branch" name="branch">
-            <option value="Siam Paragon G fl.">Siam Paragon G fl.</option>
-            <option value="Siam Paragon Major">Siam Paragon Major</option>
-            <option value="Siam Center">Siam Center</option>
-            <option value="Siam Discovery">Siam Discovery</option>
-            <option value="Langsuan">Langsuan</option>
-            <option value="Nana Square">Nana Square</option>
-            <option value="Ploenchit Center">Ploenchit Center</option>
-            <option value="The Mercury Ville">The Mercury Ville</option>
-            <option value="The 19th Chidlom">The 19th Chidlom</option>
-            <option value="One Bangkok Reserve">One Bangkok Reserve</option>
-            <option value="One Bangkok R1 B1">One Bangkok R1 B1</option>
-            <option value="One Bangkok 3 fl.">One Bangkok 3 fl.</option>
-        </select>
-
-        <label for="critical">Critical (รุนแรงมาก):</label>
-        <select id="critical" name="critical">
-            <option value="มี">มี</option>
-            <option value="ไม่มี">ไม่มี</option>
-        </select>
-
-        <label for="major">Major (รุนแรง):</label>
-        <select id="major" name="major">
-            <option value="มี">มี</option>
-            <option value="ไม่มี">ไม่มี</option>
-        </select>
-
-        <label for="minor">Minor (ปกติ):</label>
-        <select id="minor" name="minor">
-            <option value="มี">มี</option>
-            <option value="ไม่มี">ไม่มี</option>
-        </select>
-
-        <label for="auditor">ตรวจโดย:</label>
-        <select id="auditor" name="auditor">
-            <option value="Audit">Audit</option>
-            <option value="SM Project">SM Project</option>
-        </select>
-
-        <button type="submit" class="submit-btn">อัพเดทข้อมูล</button>
-    </form>
-
-    <!-- Display result after submitting -->
-    <div id="result" class="result" style="display: none;">
-        <h2>ผลการตรวจ:</h2>
-        <p><strong>สาขา:</strong> <span id="result-branch"></span></p>
-        <p><strong>Critical (รุนแรงมาก):</strong> <span id="result-critical"></span></p>
-        <p><strong>Major (รุนแรง):</strong> <span id="result-major"></span></p>
-        <p><strong>Minor (ปกติ):</strong> <span id="result-minor"></span></p>
-        <p><strong>ตรวจโดย:</strong> <span id="result-auditor"></span></p>
+    <div class="message">
+        กรุณาซักครู่ อยู่ในช่วงพัฒนาข้อมูล FSA Score ครับ
     </div>
-</div>
-
-<script>
-// Handle form submission
-document.getElementById("cleanliness-form").addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent the form from submitting the traditional way
-
-    const formData = new FormData(e.target);
-    const data = {
-        branch: formData.get("branch"),
-        critical: formData.get("critical"),
-        major: formData.get("major"),
-        minor: formData.get("minor"),
-        auditor: formData.get("auditor")
-    };
-
-    // Display the result section
-    document.getElementById("result").style.display = "block";
-    document.getElementById("result-branch").textContent = data.branch;
-    document.getElementById("result-critical").textContent = data.critical;
-    document.getElementById("result-major").textContent = data.major;
-    document.getElementById("result-minor").textContent = data.minor;
-    document.getElementById("result-auditor").textContent = data.auditor;
-
-    console.log("ข้อมูลที่อัพเดท:", data);
-
-    // Optionally, you can show an alert or send data to the server.
-    alert("ข้อมูลของสาขาถูกอัพเดทเรียบร้อยแล้ว!");
-});
-</script>
-
 </body>
 </html>
